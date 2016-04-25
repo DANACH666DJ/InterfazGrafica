@@ -26,6 +26,10 @@ public class TablaPractica extends JFrame {
 	private JTextField textClave;
 	private JTextField textValor;
 	private JTable table;
+	private DefaultTableModel modelo;
+	private JButton btnAddd;
+	private JButton btnBorrar;
+	private JButton btnModificar;
 
 	/**
 	 * Launch the application.
@@ -72,7 +76,7 @@ public class TablaPractica extends JFrame {
 		contentPane.add(textValor);
 		textValor.setColumns(10);
 		
-		JButton btnAddd = new JButton("A\u00F1adir");
+		btnAddd = new JButton("A\u00F1adir");
 		btnAddd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -83,7 +87,7 @@ public class TablaPractica extends JFrame {
 		btnAddd.setBounds(52, 227, 89, 23);
 		contentPane.add(btnAddd);
 		
-		JButton btnBorrar = new JButton("Borrar");
+		btnBorrar = new JButton("Borrar");
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -93,7 +97,7 @@ public class TablaPractica extends JFrame {
 		btnBorrar.setBounds(176, 227, 89, 23);
 		contentPane.add(btnBorrar);
 		
-		JButton btnModificar = new JButton("Modificar");
+		btnModificar = new JButton("Modificar");
 		btnModificar.setBounds(293, 227, 89, 23);
 		contentPane.add(btnModificar);
 		
@@ -102,11 +106,12 @@ public class TablaPractica extends JFrame {
 		contentPane.add(scrollPane);
 		
 		
-		DefaultTableModel modelo= new DefaultTableModel();
-		scrollPane.setViewportView(table);
+		modelo= new DefaultTableModel();
 		table = new JTable(modelo);
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null},
 				{null, null},
 				{null, null},
 				{null, null},
@@ -115,7 +120,6 @@ public class TablaPractica extends JFrame {
 			},
 			new String[] {
 				"Clave", "Valor",
-				
 				
 			}
 		));
